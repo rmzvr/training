@@ -1,9 +1,139 @@
 @charset "UTF-8";
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+:root {
+  --clr-primary-400: hsl(167, 27%, 59%);
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+}
+
+.header {
+  min-height: 4rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 0.8em;
+}
+
+.header > * + * {
+  margin-left: 0.8em;
+}
+
+.header__title {
+  margin-right: auto;
+  color: var(--clr-primary-400);
+}
+
+.layout2,
+.layout3 {
+  display: none;
+}
+
+.section__header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding: 0.5em;
+  color: white;
+  background-color: var(--clr-primary-400);
+}
+
+.cards {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (1fr)[5];
+      grid-template-columns: repeat(5, 1fr);
+  gap: 1em 1em;
+  padding: 1em;
+}
+
+.card {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  padding: 0.4em;
+  -webkit-box-shadow: 1px 1px 5px 0 var(--clr-primary-400);
+          box-shadow: 1px 1px 5px 0 var(--clr-primary-400);
+}
+
+.card img {
+  width: 100%;
+}
+
+.card__header {
+  font-size: 16px;
+  min-height: 2rem;
+  margin-bottom: 0.4em;
+}
+
+.card__description {
+  font-size: 14px;
+  margin-top: 0.4em;
+}
+
+@media screen and (max-width: 768px) {
+  .header__title {
+    font-size: 28px;
+  }
+  .cards {
+    -ms-grid-columns: (1fr)[3];
+        grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media screen and (max-width: 375px) {
+  .header {
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+  }
+  .header > * + * {
+    margin-left: 0;
+  }
+  .header__title {
+    display: none;
+  }
+  .section__header {
+    font-size: 20px;
+  }
+  .cards {
+    -ms-grid-columns: (1fr)[2];
+        grid-template-columns: repeat(2, 1fr);
+  }
+  .card__header {
+    font-size: 15px;
+  }
+  .card__description {
+    font-size: 13px;
+  }
+}
+
 .switch {
   position: relative;
   display: inline-block;
-  width: 180px;
-  height: 52px;
+  width: 11.25rem;
+  height: 3.25rem;
 }
 
 .switch__input {
@@ -14,8 +144,8 @@
 
 .switch__input:checked + .switch__slider:before {
   content: "Растяжка";
-  -webkit-transform: translateX(86px);
-          transform: translateX(86px);
+  -webkit-transform: translateX(5.375rem);
+          transform: translateX(5.375rem);
 }
 
 .switch__input:disabled + .switch__slider {
@@ -43,19 +173,19 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  padding-left: 10px;
-  padding-right: 11px;
-  border-radius: 34px;
+  padding-left: 0.625em;
+  padding-right: 0.6875em;
+  border-radius: 2.1875em;
   background-color: #7ab3a6;
 }
 
 .switch__slider::before {
   position: absolute;
   content: "Разминка";
-  height: 44px;
-  width: 86px;
-  left: 4px;
-  bottom: 4px;
+  height: 2.75rem;
+  width: 5.375rem;
+  left: 0.25rem;
+  bottom: 0.25rem;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -65,7 +195,7 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  border-radius: 34px;
+  border-radius: 2.125em;
   color: #7ab3a6;
   background-color: white;
   -webkit-transition: 0.3s;
@@ -79,8 +209,8 @@
 
 .lock {
   position: relative;
-  width: 52px;
-  height: 52px;
+  width: 3.25rem;
+  height: 3.25rem;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -90,41 +220,41 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  padding-left: 6px;
-  border-radius: 25px;
+  padding-left: 0.375em;
+  border-radius: 1.5625em;
   font-weight: bold;
   cursor: pointer;
   background-color: #7ab3a6;
 }
 
 .lock:hover::before {
-  width: 78px;
+  width: 4.875rem;
   -webkit-transform: translateX(0px);
           transform: translateX(0px);
 }
 
 .lock::before {
   content: "Бег";
-  width: 25px;
+  width: 1.5625rem;
   height: 100%;
   position: absolute;
   top: 0;
-  left: -55px;
+  left: -3.4375rem;
   bottom: 0;
   z-index: -1;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  padding-left: 14px;
-  border-top-left-radius: 25px;
-  border-bottom-left-radius: 25px;
-  border: 4px solid #7ab3a6;
+      -ms-flex-align: center;
+          align-items: center;
+  padding-left: 0.875em;
+  border-top-left-radius: 1.5625em;
+  border-bottom-left-radius: 1.5625em;
+  border: 0.25em solid #7ab3a6;
   color: #7ab3a6;
-  -webkit-transform: translateX(80px);
-  transform: translateX(55px);
+  -webkit-transform: translateX(3.4375rem);
+          transform: translateX(3.4375rem);
   -webkit-transition: all 0.5s cubic-bezier(0.68, -0.55, 0.27, 1.55);
   transition: all 0.5s cubic-bezier(0.68, -0.55, 0.27, 1.55);
 }
@@ -137,8 +267,8 @@
   fill: #fff;
   -webkit-transform: rotate(8deg);
           transform: rotate(8deg);
-  -webkit-transform-origin: 14px 20px;
-          transform-origin: 14px 20px;
+  -webkit-transform-origin: 0.875em 1.25em;
+          transform-origin: 0.875em 1.25em;
   -webkit-transition: all 0.2s ease;
   transition: all 0.2s ease;
 }
@@ -164,102 +294,29 @@
 .lock__input:checked + .lock__icon .lock__icon-top {
   -webkit-transform: rotate(0);
           transform: rotate(0);
-  -webkit-transform-origin: 14px 22px;
-          transform-origin: 14px 22px;
+  -webkit-transform-origin: 0.875em 1.375em;
+          transform-origin: 0.875em 1.375em;
 }
 
 .lock__input:checked + .lock__icon .lock__icon-bottom {
   stroke-dasharray: 48;
 }
 
-*,
-*::before,
-*::after {
-  margin: 0;
-  padding: 0;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
-}
-
-:root {
-  --clr-primary-400: hsl(167, 27%, 59%);
-}
-
-body {
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
-}
-
-.header {
-  min-height: 4rem;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  padding: 0.8rem;
-}
-
-.header > * + * {
-  margin-left: 0.8rem;
-}
-
-.header__title {
-  margin-right: auto;
-  color: var(--clr-primary-400);
-}
-
-.layout2,
-.layout3 {
-  display: none;
-}
-
-.section__header {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  padding: 0.5rem;
-  color: white;
-  background-color: var(--clr-primary-400);
-}
-
-.cards {
-  display: -ms-grid;
-  display: grid;
-  -ms-grid-columns: (1fr)[5];
-      grid-template-columns: repeat(5, 1fr);
-  gap: 1rem 1rem;
-  padding: 1rem;
-}
-
-.card {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  padding: 0.4rem;
-  -webkit-box-shadow: 1px 1px 5px 0 var(--clr-primary-400);
-          box-shadow: 1px 1px 5px 0 var(--clr-primary-400);
-}
-
-.card img {
-  width: 100%;
-}
-
-.card__header {
-  font-size: 16px;
-  min-height: 2rem;
-  margin-bottom: 0.4rem;
-}
-
-.card__description {
-  font-size: 14px;
-  margin-top: 0.4rem;
+@media screen and (max-width: 375px) {
+  .lock::before {
+    left: -38px;
+    padding-left: 0;
+    border-top-left-radius: 14px;
+    border-bottom-left-radius: 14px;
+    border-top-right-radius: 1.5625em;
+    border-bottom-right-radius: 1.5625em;
+  }
+  .lock:hover::before {
+    content: "Бег";
+    width: 92px;
+    padding-left: 41px;
+    -webkit-transform: translateX(3.4375rem);
+            transform: translateX(3.4375rem);
+  }
 }
 /*# sourceMappingURL=main.css.map */

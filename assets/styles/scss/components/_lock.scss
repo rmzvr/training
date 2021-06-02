@@ -1,15 +1,15 @@
 .lock {
     position: relative;
 
-    width: 52px;
-    height: 52px;
+    width: 3.25rem;
+    height: 3.25rem;
 
     display: flex;
     justify-content: center;
     align-items: center;
 
-    padding-left: 6px;
-    border-radius: 25px;
+    padding-left: 0.375em;
+    border-radius: 1.5625em;
 
     font-weight: bold;
 
@@ -17,32 +17,27 @@
     background-color: hsl(167, 27%, 59%);
 
     &:hover::before {
-        width: 78px;
+        width: 4.875rem;
         transform: translateX(0px);
     }
 
     &::before {
         content: "Бег";
-        width: 25px;
+        width: 1.5625rem;
         height: 100%;
         position: absolute;
         top: 0;
-        left: -55px;
+        left: -3.4375rem;
         bottom: 0;
         z-index: -1;
-        display: -webkit-box;
-        display: -ms-flexbox;
         display: flex;
-        -webkit-box-align: center;
-        -ms-flex-align: center;
         align-items: center;
-        padding-left: 14px;
-        border-top-left-radius: 25px;
-        border-bottom-left-radius: 25px;
-        border: 4px solid #7ab3a6;
+        padding-left: 0.875em;
+        border-top-left-radius: 1.5625em;
+        border-bottom-left-radius: 1.5625em;
+        border: 0.25em solid #7ab3a6;
         color: #7ab3a6;
-        -webkit-transform: translateX(80px);
-        transform: translateX(55px);
+        transform: translateX(3.4375rem);
         transition: all 0.5s cubic-bezier(0.68, -0.55, 0.27, 1.55);
     }
 }
@@ -53,7 +48,7 @@
     &-top {
         fill: #fff;
         transform: rotate(8deg);
-        transform-origin: 14px 20px;
+        transform-origin: 0.875em 1.25em;
         transition: all 0.2s ease;
     }
 
@@ -74,10 +69,28 @@
 
     &:checked + .lock__icon .lock__icon-top {
         transform: rotate(0);
-        transform-origin: 14px 22px;
+        transform-origin: 0.875em 1.375em;
     }
 
     &:checked + .lock__icon .lock__icon-bottom {
         stroke-dasharray: 48;
+    }
+}
+
+@media screen and (max-width: 375px) {
+    .lock::before {
+        left: -38px;
+        padding-left: 0;
+        border-top-left-radius: 14px;
+        border-bottom-left-radius: 14px;
+        border-top-right-radius: 1.5625em;
+        border-bottom-right-radius: 1.5625em;
+    }
+
+    .lock:hover::before {
+        content: "Бег";
+        width: 92px;
+        padding-left: 41px;
+        transform: translateX(3.4375rem);
     }
 }
