@@ -1,0 +1,83 @@
+.lock {
+    position: relative;
+
+    width: 52px;
+    height: 52px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding-left: 6px;
+    border-radius: 25px;
+
+    font-weight: bold;
+
+    cursor: pointer;
+    background-color: hsl(167, 27%, 59%);
+
+    &:hover::before {
+        width: 78px;
+        transform: translateX(0px);
+    }
+
+    &::before {
+        content: "Бег";
+        width: 25px;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: -55px;
+        bottom: 0;
+        z-index: -1;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+        padding-left: 14px;
+        border-top-left-radius: 25px;
+        border-bottom-left-radius: 25px;
+        border: 4px solid #7ab3a6;
+        color: #7ab3a6;
+        -webkit-transform: translateX(80px);
+        transform: translateX(55px);
+        transition: all 0.5s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+    }
+}
+
+.lock__icon {
+    fill: none;
+
+    &-top {
+        fill: #fff;
+        transform: rotate(8deg);
+        transform-origin: 14px 20px;
+        transition: all 0.2s ease;
+    }
+
+    &-bottom {
+        stroke: #fff;
+        stroke-width: 4;
+        stroke-linejoin: round;
+        stroke-linecap: round;
+        stroke-dasharray: 36;
+        transition: all 0.4s ease;
+    }
+}
+
+.lock__input {
+    width: 0;
+    height: 0;
+    appearance: none;
+
+    &:checked + .lock__icon .lock__icon-top {
+        transform: rotate(0);
+        transform-origin: 14px 22px;
+    }
+
+    &:checked + .lock__icon .lock__icon-bottom {
+        stroke-dasharray: 48;
+    }
+}
